@@ -1,0 +1,47 @@
+﻿@page
+@model WebApplication1.Pages.CreateCarSalesEntryModel
+
+@{
+    ViewData["Title"] = "CreateCarSalesEntry";
+}
+
+<h2>CreateCarSalesEntry</h2>
+
+<h4>CarSalesEntry for @Model.CarEntry.Notes</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CarSalesEntry.CarNumber" class="control-label"></label>
+                <input asp-for="CarSalesEntry.CarNumber" class="form-control" />
+                <span asp-validation-for="CarSalesEntry.CarNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarSalesEntry.Price" class="control-label"></label>
+                <input asp-for="CarSalesEntry.Price" class="form-control" />
+                <span asp-validation-for="CarSalesEntry.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarSalesEntry.TransactionDate" class="control-label"></label>
+                <input asp-for="CarSalesEntry.TransactionDate" class="form-control" />
+                <span asp-validation-for="CarSalesEntry.TransactionDate" class="text-danger"></span>
+            </div>            
+            <div class="form-group">
+                <input asp-for="CarSalesEntry.CarEntryId" value="@Model.CarEntry.Id" type="hidden" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
