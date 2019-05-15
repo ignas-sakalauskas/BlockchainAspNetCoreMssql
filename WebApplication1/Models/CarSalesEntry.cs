@@ -27,5 +27,7 @@ namespace WebApplication1.Models
 
         [NotMapped]
         public bool IsValid { get; set; }
+
+        public virtual CarSalesEntry Previous { get; set; }
     }
 }
